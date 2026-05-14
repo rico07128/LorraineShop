@@ -1,4 +1,7 @@
 {% extends 'home.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load static %}
 
 {% block content %}
   <h1 style="text-align: center;">{{ product.name }}</h1>
@@ -12,14 +15,14 @@
 
     <div>
       <p>
-        <strong>Prix :</strong> {{ product.price }} €
+        <strong>{% trans 'Prix :' %}</strong> {{ product.price }} €
       </p>
       <p>{{ product.description }}</p>
 
       <form action="{% url 'cart:add_to_cart' product.id %}" method="post">
         {% csrf_token %}
 
-        <label for="quantity">Quantité :</label>
+        <label for="quantity">{% trans 'Quantité :' %}</label>
         <div class="qty-selector">
           <button type="button" onclick="changeQty(-1)">–</button>
           <input type="number" id="quantity" name="quantity" value="1" min="1" max="{{ product.stock }}" />
@@ -35,7 +38,7 @@
 }
             </script>
 
-        <button type="submit">Ajouter au panier</button>
+        <button type="submit">{% trans 'Ajouter au panier' %}</button>
       </form>
     </div>
   </div>

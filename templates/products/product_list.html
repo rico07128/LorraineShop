@@ -1,17 +1,18 @@
-{% load i18n %}
-
 {% extends 'home.html' %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load static %}
 
 {% block content %}
-  <h1 style="text-align: center;border-radius: 5px; background-color: #7a9c7a; padding: 10px;">Produits</h1>
+  <h1 style="text-align: center;border-radius: 5px; background-color: #7a9c7a; padding: 10px;">{% trans 'Produits' %}</h1>
 
   <div style="display:flex; gap:20px;">
     <aside style="width:200px;">
-      <h3 style="text-align: center;border-radius: 5px; background-color: #7a9c7a; padding: 10px;">Catégories</h3>
+      <h3 style="text-align: center;border-radius: 5px; background-color: #7a9c7a; padding: 10px;">{% trans 'Catégories' %}</h3>
       <br />
       <ul>
         <li>
-          <a href="{% url 'products:product_list' %}">Tous les produits</a>
+          <a href="{% url 'products:product_list' %}">{% trans 'Tous les produits' %}</a>
         </li>
         {% for cat in categories %}
           <li>
@@ -31,8 +32,8 @@
             <h3>{{ product.name }}</h3>
             <p>{{ product.price }} €</p>
 
-            <a href="{% url 'cart:add_to_cart' product.id %}">Ajouter au panier</a><br />
-            <a href="{% url 'products:product_detail' product.slug %}">Voir</a>
+            <a href="{% url 'cart:add_to_cart' product.id %}">{% trans 'Ajouter au panier' %}</a><br />
+            <a href="{% url 'products:product_detail' product.slug %}">{% trans 'Voir' %}</a>
           </div>
         {% endfor %}
       </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 16:43+0000\n"
+"POT-Creation-Date: 2026-05-14 18:34+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1610,49 +1610,70 @@ msgstr "Conéctese, obtenga ayuda o contribuya"
 msgid "LorraineShop – Artisanat & Créations"
 msgstr "LorraineShop – Manualidades y creaciones"
 
-#: templates/home.html:141
+#: templates/home.html:229
 msgid "Accueil"
 msgstr "Bienvenido"
 
-#: templates/home.html:142
+#: templates/home.html:230
 msgid "Boutique"
 msgstr "Tienda"
 
-#: templates/home.html:143
+#: templates/home.html:231
 msgid "Panier"
 msgstr "Carrito"
 
-#: templates/home.html:144
+#: templates/home.html:232
 msgid "Commander"
 msgstr "Pagar"
 
-#: templates/home.html:193
+#: templates/home.html:281
 msgid "Créations artisanales faites avec passion"
 msgstr "Creaciones artesanales hechas con pasión."
 
-#: templates/home.html:195
+#: templates/home.html:283
 msgid "Découvrir la boutique"
 msgstr "Descubre la tienda"
 
-#: templates/home.html:201
+#: templates/home.html:289
 msgid "Produits populaires"
 msgstr "Productos populares"
 
-#: templates/home.html:214
+#: templates/home.html:302 templates/products/product_list.html:36
 msgid "Voir"
 msgstr "Ver"
 
-#: templates/home.html:219
+#: templates/home.html:307 templates/products/product_detail.html:41
+#: templates/products/product_list.html:35
 msgid "Ajouter au panier"
 msgstr "Añadir al carrito"
 
-#: templates/home.html:223
+#: templates/home.html:311
 msgid "Aucun produit pour le moment."
 msgstr "No hay productos por el momento."
 
-#: templates/home.html:231
+#: templates/home.html:319
 msgid "Créations artisanales"
 msgstr "Creaciones artesanales"
+
+#: templates/products/product_detail.html:18
+msgid "Prix :"
+msgstr "Precio :"
+
+#: templates/products/product_detail.html:25
+msgid "Quantité :"
+msgstr "Cantidad :"
+
+#: templates/products/product_list.html:7
+msgid "Produits"
+msgstr "Productos"
+
+#: templates/products/product_list.html:11
+msgid "Catégories"
+msgstr "Categorías"
+
+#: templates/products/product_list.html:15
+msgid "Tous les produits"
+msgstr "Todos los productos"
 
 #: venv/lib/python3.12/site-packages/click/_termui_impl.py:633
 #, python-brace-format
