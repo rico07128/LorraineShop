@@ -1,0 +1,65 @@
+{% extends "home.html" %}
+
+{% block content %}
+<h1 style="color: #40b45d; text-align: center;" >Votre panier</h1>
+
+
+
+{% if cart %}
+<div class="table-wrapper">
+    <table class="cart-table">
+        <thead>
+            <tr>
+                <th>Produit</th>
+                <th>Quantité</th>
+                <th>Sous-total</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in cart %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+
+                <td class="qty-cell">
+                    <a href="{% url 'cart:cart_remove_one' item.product.id %}" class="qty-btn">−</a>
+
+                    <span class="qty-number">{{ item.quantity }}</span>
+
+                    <a href="{% url 'cart:cart_add' item.product.id %}"
+                       class="qty-btn {% if item.quantity >= item.product.stock %}disabled{% endif %}">
+                        +
+                    </a>
+                </td>
+
+                <td>{{ item.total_price }} €</td>
+
+                <td>
+                    <a href="{% url 'cart:remove_from_cart' item.product.id %}" class="remove-btn">
+                        Supprimer
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+
+
+
+<div class="cart-total">
+    <h3 style="text-align: center;">Total : {{ cart.get_total_price }} €</h3>
+    
+   
+</div>
+<div style="text-align:center; margin-top:20px; ">
+    <a href="{% url 'cart:checkout' %}" style="background: #6772e5; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 18px; font-weight: 600; transition: 0.2s ease;">Payer maintenant</a>
+</div>
+
+{% else %}
+    <p style="color: #e71616;border: 2px solid #e71616; text-align: center;">Votre panier est vide.</p>
+{% endif %}
+
+{% endblock %}

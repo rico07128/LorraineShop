@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>LorraineShop – Artisanat & Créations</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+    <style>
+         body {
+        font-family: 'Poppins', sans-serif;
+    }
+         
+    </style> 
+</head>
+
+<body>
+ {% if messages %}
+<div style="width: 80%; margin: 20px auto;">
+    {% for message in messages %}
+        <div style="
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            background-color:
+                {% if message.tags == 'success' %}#d4edda
+                {% elif message.tags == 'info' %}#d1ecf1
+                {% elif message.tags == 'warning' %}#fff3cd
+                {% else %}#f8d7da{% endif %};
+            color: #000;
+        ">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+
+
+    <header class="header">
+    <div class="container">
+        <div class="logo">LorraineShop</div>
+        <nav>
+            <a href="/">Accueil</a>
+            <a href="/products/">Boutique</a>
+            <a href="/cart/">Panier</a>
+            <a href="/orders/create/">Commander</a>
+        </nav>
+    </div>
+</header>
+{% block content %}
+{% endblock %}
+
+    
+
+    <!-- HERO -->
+    <div class="hero">
+        <div>
+            <h1>LorraineShop</h1>
+            <p>Créations artisanales faites avec passion</p>
+            <a href="/products/" class="btn">Découvrir la boutique</a>
+        </div>
+    </div>
+
+    <!-- PRODUITS POPULAIRES -->
+    <div class="section">
+        <h2>Produits populaires</h2>
+
+        <div class="products-grid">
+            {% for product in products %}
+                <div class="product-card">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <img src="https://via.placeholder.com/300x200?text=Produit" alt="">
+                    {% endif %}
+                    <h3>{{ product.name }}</h3>
+                    <a href="{% url 'products:product_detail' product.slug %}">Voir</a>
+                    <p>{{ product.description }}</p>
+                    <p>{{ product.price }} €</p>
+                    <a href="{% url 'cart:add_to_cart' product.id %}">Ajouter au panier</a>
+
+                </div>
+            {% empty %}
+                <p>Aucun produit pour le moment.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <footer class="footer">
+    <p>© {{ now|date:"Y" }} LorraineShop — Créations artisanales</p>
+</footer>
+
+
+
+</body>
+</html>

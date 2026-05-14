@@ -1,0 +1,14 @@
+
+<h1>Passer commande</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="first_name" placeholder="Prénom"><br>
+    <input type="text" name="last_name" placeholder="Nom"><br>
+    <input type="email" name="email" placeholder="Email"><br>
+    <input type="text" name="address" placeholder="Adresse"><br>
+    <input type="text" name="postal_code" placeholder="Code postal"><br>
+    <input type="text" name="city" placeholder="Ville"><br>
+
+    <button type="submit">Valider la commande</button>
+</form>
