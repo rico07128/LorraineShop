@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14 11:58+0200\n"
+"POT-Creation-Date: 2026-05-14 16:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,7 +58,7 @@ msgstr "That page number is less than 1"
 #: env/lib/python3.12/site-packages/django/core/paginator.py:37
 #: venv/lib/python3.12/site-packages/django/core/paginator.py:37
 msgid "That page contains no results"
-msgstr "That page contains no results"
+msgstr "This page contains no results"
 
 #: env/lib/python3.12/site-packages/django/core/validators.py:22
 #: venv/lib/python3.12/site-packages/django/core/validators.py:22
@@ -119,14 +119,14 @@ msgstr "Enter a valid %(protocol)s address."
 #: env/lib/python3.12/site-packages/django/core/validators.py:311
 #: venv/lib/python3.12/site-packages/django/core/validators.py:311
 msgid "IPv4"
-msgstr "Ipvch"
+msgstr "IPv4"
 
 #: env/lib/python3.12/site-packages/django/core/validators.py:320
 #: env/lib/python3.12/site-packages/django/utils/ipv6.py:43
 #: venv/lib/python3.12/site-packages/django/core/validators.py:320
 #: venv/lib/python3.12/site-packages/django/utils/ipv6.py:43
 msgid "IPv6"
-msgstr "Ipvsh"
+msgstr "IPv6"
 
 #: env/lib/python3.12/site-packages/django/core/validators.py:334
 #: venv/lib/python3.12/site-packages/django/core/validators.py:334
@@ -549,7 +549,7 @@ msgstr "“%(value)s” is not a valid UUID."
 #: env/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2733
 #: venv/lib/python3.12/site-packages/django/db/models/fields/__init__.py:2733
 msgid "Universally unique identifier"
-msgstr "Universally unique identifier"
+msgstr "Universally unique identify"
 
 #: env/lib/python3.12/site-packages/django/db/models/fields/files.py:244
 #: venv/lib/python3.12/site-packages/django/db/models/fields/files.py:244
@@ -559,7 +559,7 @@ msgstr "File"
 #: env/lib/python3.12/site-packages/django/db/models/fields/files.py:420
 #: venv/lib/python3.12/site-packages/django/db/models/fields/files.py:420
 msgid "Image"
-msgstr "Image"
+msgstr "Picture"
 
 #: env/lib/python3.12/site-packages/django/db/models/fields/json.py:24
 #: venv/lib/python3.12/site-packages/django/db/models/fields/json.py:24
@@ -602,7 +602,7 @@ msgstr "%(from)s-%(to)s relationships"
 #: env/lib/python3.12/site-packages/django/db/models/fields/related.py:1382
 #: venv/lib/python3.12/site-packages/django/db/models/fields/related.py:1378
 msgid "Many-to-many relationship"
-msgstr "Many-to-many relationship"
+msgstr "Many-to-many relationships"
 
 #. Translators: If found as last label character, these punctuation
 #. characters will prevent the default label_suffix to be appended to
@@ -655,7 +655,7 @@ msgstr "The number of days must be between {min_days} and {max_days}."
 #: env/lib/python3.12/site-packages/django/forms/fields.py:638
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:638
 msgid "No file was submitted. Check the encoding type on the form."
-msgstr "No file was submitted. Check the encoding type on the form."
+msgstr "No file was submitted.Check the encoding type on the form."
 
 #: env/lib/python3.12/site-packages/django/forms/fields.py:639
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:639
@@ -680,7 +680,7 @@ msgstr[1] ""
 #: env/lib/python3.12/site-packages/django/forms/fields.py:647
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:647
 msgid "Please either submit a file or check the clear checkbox, not both."
-msgstr "Please either submit a file or check the clear checkbox, not both."
+msgstr "Please either submit a file or check the both clear checkbox, not."
 
 #: env/lib/python3.12/site-packages/django/forms/fields.py:715
 #: venv/lib/python3.12/site-packages/django/forms/fields.py:715
@@ -688,7 +688,7 @@ msgid ""
 "Upload a valid image. The file you uploaded was either not an image or a "
 "corrupted image."
 msgstr ""
-"Upload a valid image. The file you uploaded was either not an image or a "
+"Upload a valid image.The file you uploaded was either not an image or a "
 "corrupted image."
 
 #: env/lib/python3.12/site-packages/django/forms/fields.py:862
@@ -801,7 +801,7 @@ msgstr ""
 #: env/lib/python3.12/site-packages/django/forms/models.py:946
 #: venv/lib/python3.12/site-packages/django/forms/models.py:946
 msgid "Please correct the duplicate values below."
-msgstr "Please correct the duplicate values below."
+msgstr "Please correct the duplicate values ​​below."
 
 #: env/lib/python3.12/site-packages/django/forms/models.py:1383
 #: venv/lib/python3.12/site-packages/django/forms/models.py:1383
@@ -813,7 +813,7 @@ msgstr "The inline value did not match the parent instance."
 msgid ""
 "Select a valid choice. That choice is not one of the available choices."
 msgstr ""
-"Select a valid choice. That choice is not one of the available choices."
+"Select a valid choice.That choice is not one of the available choices."
 
 #: env/lib/python3.12/site-packages/django/forms/models.py:1623
 #: venv/lib/python3.12/site-packages/django/forms/models.py:1623
@@ -844,7 +844,7 @@ msgstr "Currently"
 #: env/lib/python3.12/site-packages/django/forms/widgets.py:530
 #: venv/lib/python3.12/site-packages/django/forms/widgets.py:530
 msgid "Change"
-msgstr "Change"
+msgstr "Exchange"
 
 #: env/lib/python3.12/site-packages/django/forms/widgets.py:869
 #: venv/lib/python3.12/site-packages/django/forms/widgets.py:869
@@ -883,7 +883,7 @@ msgstr "Failed"
 #: venv/lib/python3.12/site-packages/django/tasks/base.py:40
 msgctxt "Task"
 msgid "Successful"
-msgstr "Successful"
+msgstr "successful"
 
 #. Translators: Please do not add spaces around commas.
 #: env/lib/python3.12/site-packages/django/template/defaultfilters.py:878
@@ -911,7 +911,7 @@ msgstr "%s KB"
 #: venv/lib/python3.12/site-packages/django/template/defaultfilters.py:929
 #, python-format
 msgid "%s MB"
-msgstr "%xsMB"
+msgstr "%s MB"
 
 #: env/lib/python3.12/site-packages/django/template/defaultfilters.py:931
 #: venv/lib/python3.12/site-packages/django/template/defaultfilters.py:931
@@ -949,7 +949,7 @@ msgstr "PM"
 #: env/lib/python3.12/site-packages/django/utils/dateformat.py:81
 #: venv/lib/python3.12/site-packages/django/utils/dateformat.py:81
 msgid "AM"
-msgstr "AM"
+msgstr "A.M."
 
 #: env/lib/python3.12/site-packages/django/utils/dateformat.py:153
 #: venv/lib/python3.12/site-packages/django/utils/dateformat.py:153
@@ -959,7 +959,7 @@ msgstr "midnight"
 #: env/lib/python3.12/site-packages/django/utils/dateformat.py:155
 #: venv/lib/python3.12/site-packages/django/utils/dateformat.py:155
 msgid "noon"
-msgstr "noon"
+msgstr "noo"
 
 #: env/lib/python3.12/site-packages/django/utils/dates.py:7
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:7
@@ -999,17 +999,17 @@ msgstr "Sunday"
 #: env/lib/python3.12/site-packages/django/utils/dates.py:16
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:16
 msgid "Mon"
-msgstr "Mon"
+msgstr "My"
 
 #: env/lib/python3.12/site-packages/django/utils/dates.py:17
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:17
 msgid "Tue"
-msgstr "Tue"
+msgstr "Kill"
 
 #: env/lib/python3.12/site-packages/django/utils/dates.py:18
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:18
 msgid "Wed"
-msgstr "Wed"
+msgstr "Wednesday"
 
 #: env/lib/python3.12/site-packages/django/utils/dates.py:19
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:19
@@ -1109,7 +1109,7 @@ msgstr "mar"
 #: env/lib/python3.12/site-packages/django/utils/dates.py:42
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:42
 msgid "apr"
-msgstr "apr"
+msgstr "after"
 
 #: env/lib/python3.12/site-packages/django/utils/dates.py:43
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:43
@@ -1119,12 +1119,12 @@ msgstr "may"
 #: env/lib/python3.12/site-packages/django/utils/dates.py:44
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:44
 msgid "jun"
-msgstr "jun"
+msgstr "June"
 
 #: env/lib/python3.12/site-packages/django/utils/dates.py:45
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:45
 msgid "jul"
-msgstr "jul"
+msgstr "July"
 
 #: env/lib/python3.12/site-packages/django/utils/dates.py:46
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:46
@@ -1203,7 +1203,7 @@ msgstr "Aug."
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:61
 msgctxt "abbrev. month"
 msgid "Sept."
-msgstr "Sept."
+msgstr "Seven."
 
 #: env/lib/python3.12/site-packages/django/utils/dates.py:62
 #: venv/lib/python3.12/site-packages/django/utils/dates.py:62
@@ -1310,7 +1310,7 @@ msgstr "%(truncated_text)s…"
 #: env/lib/python3.12/site-packages/django/utils/text.py:282
 #: venv/lib/python3.12/site-packages/django/utils/text.py:282
 msgid "or"
-msgstr "or"
+msgstr "gold"
 
 #. Translators: This string is used as a separator between list elements
 #: env/lib/python3.12/site-packages/django/utils/text.py:301
@@ -1376,7 +1376,7 @@ msgstr "Forbidden"
 #: env/lib/python3.12/site-packages/django/views/csrf.py:30
 #: venv/lib/python3.12/site-packages/django/views/csrf.py:30
 msgid "CSRF verification failed. Request aborted."
-msgstr "CSRF verification failed. Request aborted."
+msgstr "CSRF verification failed.Request aborted."
 
 #: env/lib/python3.12/site-packages/django/views/csrf.py:34
 #: venv/lib/python3.12/site-packages/django/views/csrf.py:34
@@ -1387,7 +1387,7 @@ msgid ""
 "hijacked by third parties."
 msgstr ""
 "You are seeing this message because this HTTPS site requires a “Referer "
-"header” to be sent by your web browser, but none was sent. This header is "
+"header” to be sent by your web browser, but none was sent.This header is "
 "required for security reasons, to ensure that your browser is not being "
 "hijacked by third parties."
 
@@ -1412,9 +1412,9 @@ msgid ""
 "rel=\"noreferrer\" …> for links to third-party sites."
 msgstr ""
 "If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
-" including the “Referrer-Policy: no-referrer” header, please remove them. "
-"The CSRF protection requires the “Referer” header to do strict referer "
-"checking. If you’re concerned about privacy, use alternatives like <a "
+" including the “Referrer-Policy: no-referrer” header, please remove them.The"
+" CSRF protection requires the “Referer” header to do strict referer "
+"checking.If you’re concerned about privacy, use alternatives like <a "
 "rel=\"noreferrer\" …> for links to third-party sites."
 
 #: env/lib/python3.12/site-packages/django/views/csrf.py:54
@@ -1425,7 +1425,7 @@ msgid ""
 "that your browser is not being hijacked by third parties."
 msgstr ""
 "You are seeing this message because this site requires a CSRF cookie when "
-"submitting forms. This cookie is required for security reasons, to ensure "
+"submitting forms.This cookie is required for security reasons, to ensure "
 "that your browser is not being hijacked by third parties."
 
 #: env/lib/python3.12/site-packages/django/views/csrf.py:60
@@ -1544,7 +1544,7 @@ msgstr "Index of %(directory)s"
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:7
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:204
 msgid "The install worked successfully! Congratulations!"
-msgstr "The install worked successfully! Congratulations!"
+msgstr "The install worked successfully!Congratulations!"
 
 #: env/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:206
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:206
@@ -1578,7 +1578,7 @@ msgstr "Django Documentation"
 #: env/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:218
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:218
 msgid "Topics, references, &amp; how-to’s"
-msgstr "Topics, references, &amp; how-to’s"
+msgstr "Topics, references, &amp;how-to’s"
 
 #: env/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:226
 #: venv/lib/python3.12/site-packages/django/views/templates/default_urlconf.html:226
@@ -1600,51 +1600,51 @@ msgstr "Django Community"
 msgid "Connect, get help, or contribute"
 msgstr "Connect, get help, or contribute"
 
-#: templates/home.html:7
+#: templates/home.html:8
 msgid "LorraineShop – Artisanat & Créations"
 msgstr "LorraineShop – Crafts & Creations"
 
-#: templates/home.html:52
+#: templates/home.html:141
 msgid "Accueil"
 msgstr "Welcome"
 
-#: templates/home.html:53
+#: templates/home.html:142
 msgid "Boutique"
-msgstr "Boutique"
+msgstr "Shop"
 
-#: templates/home.html:54
+#: templates/home.html:143
 msgid "Panier"
-msgstr "Basket"
+msgstr "Cart"
 
-#: templates/home.html:55
+#: templates/home.html:144
 msgid "Commander"
-msgstr "Commander"
+msgstr "Checkout"
 
-#: templates/home.html:104
+#: templates/home.html:193
 msgid "Créations artisanales faites avec passion"
 msgstr "Artisanal creations made with passion"
 
-#: templates/home.html:106
+#: templates/home.html:195
 msgid "Découvrir la boutique"
 msgstr "Discover the store"
 
-#: templates/home.html:112
+#: templates/home.html:201
 msgid "Produits populaires"
 msgstr "Popular products"
 
-#: templates/home.html:125
+#: templates/home.html:214
 msgid "Voir"
-msgstr "See"
+msgstr "View"
 
-#: templates/home.html:130
+#: templates/home.html:219
 msgid "Ajouter au panier"
 msgstr "Add to cart"
 
-#: templates/home.html:134
+#: templates/home.html:223
 msgid "Aucun produit pour le moment."
 msgstr "No products at the moment."
 
-#: templates/home.html:142
+#: templates/home.html:231
 msgid "Créations artisanales"
 msgstr "Artisanal creations"
 
@@ -1840,7 +1840,7 @@ msgstr "Error: {e.message}"
 
 #: venv/lib/python3.12/site-packages/click/termui.py:202
 msgid "Error: The two entered values do not match."
-msgstr "Error: The two entered values do not match."
+msgstr "Error: The two entered values ​​do not match."
 
 #: venv/lib/python3.12/site-packages/click/termui.py:261
 msgid "Error: invalid input"
@@ -1857,7 +1857,7 @@ msgid ""
 "\t{choices}"
 msgstr ""
 "Choose from:\n"
-"{choices}"
+"\t{choices}"
 
 #: venv/lib/python3.12/site-packages/click/types.py:369
 msgid "{value!r} is not {choice}."

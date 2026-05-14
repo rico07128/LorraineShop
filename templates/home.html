@@ -1,7 +1,8 @@
 {% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ LANGUAGE_CODE }}">
   <head>
     <meta charset="UTF-8" />
     <title>{% trans 'LorraineShop – Artisanat & Créations' %}</title>
@@ -27,16 +28,104 @@
             font-weight: bold;
             background-color:
                 {% if message.tags == 'success' %}
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               #d4edda
 
+
+
+
+
+
+
+
+
+
+
+
             {% elif message.tags == 'info' %}
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               #d1ecf1
 
+
+
+
+
+
+
+
+
+
+
+
             {% elif message.tags == 'warning' %}
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               #fff3cd
 
+
+
+
+
+
+
+
+
+
+
+
             {% else %}
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
               #f8d7da
+
+
+
+
+
+
+
+
+
+
+
             {% endif %};
             color: #000;
         ">{{ message }}</div>
