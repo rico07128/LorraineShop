@@ -14,28 +14,32 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 from django.shortcuts import render
 
-
 from products.models import Product
+
 
 def home(request):
     products = Product.objects.all()[:4]  # 4 produits populaires
     return render(request, "home.html", {"products": products})
 
+
 urlpatterns = [
+    # URL pour changer la langue (OBLIGATOIRE)
+    path("i18n/", include("django.conf.urls.i18n")),
+    # URLs principales
     path("", home, name="home"),
     path("admin/", admin.site.urls),
     path("cart/", include("cart.urls")),
     path("orders/", include("orders.urls")),
     path("products/", include("products.urls")),
-
 ]
 
-from django.conf import settings
-from django.conf.urls.static import static
-
+# Fichiers médias en mode DEBUG
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

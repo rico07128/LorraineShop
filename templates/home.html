@@ -1,100 +1,146 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>LorraineShop – Artisanat & Créations</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% trans 'LorraineShop – Artisanat & Créations' %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 
     <style>
-         body {
+      body {
         font-family: 'Poppins', sans-serif;
-    }
-         
-    </style> 
-</head>
+      }
+    </style>
+  </head>
 
-<body>
- {% if messages %}
-<div style="width: 80%; margin: 20px auto;">
-    {% for message in messages %}
-        <div style="
+  <body>
+    {% if messages %}
+      <div style="width: 80%; margin: 20px auto;">
+        {% for message in messages %}
+          <div style="
             padding: 12px;
             margin-bottom: 10px;
             border-radius: 5px;
             text-align: center;
             font-weight: bold;
             background-color:
-                {% if message.tags == 'success' %}#d4edda
-                {% elif message.tags == 'info' %}#d1ecf1
-                {% elif message.tags == 'warning' %}#fff3cd
-                {% else %}#f8d7da{% endif %};
+                {% if message.tags == 'success' %}
+              #d4edda
+
+            {% elif message.tags == 'info' %}
+              #d1ecf1
+
+            {% elif message.tags == 'warning' %}
+              #fff3cd
+
+            {% else %}
+              #f8d7da
+            {% endif %};
             color: #000;
-        ">
-            {{ message }}
-        </div>
-    {% endfor %}
-</div>
-{% endif %}
-
-
+        ">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
 
     <header class="header">
-    <div class="container">
+      <div class="container">
         <div class="logo">LorraineShop</div>
-        <nav>
-            <a href="/">Accueil</a>
-            <a href="/products/">Boutique</a>
-            <a href="/cart/">Panier</a>
-            <a href="/orders/create/">Commander</a>
-        </nav>
-    </div>
-</header>
-{% block content %}
-{% endblock %}
 
-    
+        <nav>
+          <a href="/">{% trans 'Accueil' %}</a>
+          <a href="/products/">{% trans 'Boutique' %}</a>
+          <a href="/cart/">{% trans 'Panier' %}</a>
+          <a href="/orders/create/">{% trans 'Commander' %}</a>
+        </nav>
+
+        <!-- LANG SWITCHER -->
+        <div class="lang-switcher">
+          <form id="lang-fr" action="/i18n/setlang/" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="language" value="fr" />
+          </form>
+          <form id="lang-en" action="/i18n/setlang/" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="language" value="en" />
+          </form>
+          <form id="lang-es" action="/i18n/setlang/" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="language" value="es" />
+          </form>
+          <form id="lang-de" action="/i18n/setlang/" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="language" value="de" />
+          </form>
+          <form id="lang-it" action="/i18n/setlang/" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="language" value="it" />
+          </form>
+          <form id="lang-ja" action="/i18n/setlang/" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="language" value="ja" />
+          </form>
+
+          <a href="#" onclick="document.getElementById('lang-fr').submit();"><img src="{% static 'flags/fr.png' %}" width="24" /></a>
+          <a href="#" onclick="document.getElementById('lang-en').submit();"><img src="{% static 'flags/en.png' %}" width="24" /></a>
+          <a href="#" onclick="document.getElementById('lang-es').submit();"><img src="{% static 'flags/es.png' %}" width="24" /></a>
+          <a href="#" onclick="document.getElementById('lang-de').submit();"><img src="{% static 'flags/de.png' %}" width="24" /></a>
+          <a href="#" onclick="document.getElementById('lang-it').submit();"><img src="{% static 'flags/it.png' %}" width="24" /></a>
+          <a href="#" onclick="document.getElementById('lang-ja').submit();"><img src="{% static 'flags/ja.png' %}" width="24" /></a>
+        </div>
+      </div>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
 
     <!-- HERO -->
     <div class="hero">
-        <div>
-            <h1>LorraineShop</h1>
-            <p>Créations artisanales faites avec passion</p>
-            <a href="/products/" class="btn">Découvrir la boutique</a>
-        </div>
+      <div>
+        <h1>LorraineShop</h1>
+        <p>
+          {% trans 'Créations artisanales faites avec passion' %}
+        </p>
+        <a href="/products/" class="btn">{% trans 'Découvrir la boutique' %}</a>
+      </div>
     </div>
 
     <!-- PRODUITS POPULAIRES -->
     <div class="section">
-        <h2>Produits populaires</h2>
+      <h2>{% trans 'Produits populaires' %}</h2>
 
-        <div class="products-grid">
-            {% for product in products %}
-                <div class="product-card">
-                    {% if product.image %}
-                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                    {% else %}
-                        <img src="https://via.placeholder.com/300x200?text=Produit" alt="">
-                    {% endif %}
-                    <h3>{{ product.name }}</h3>
-                    <a href="{% url 'products:product_detail' product.slug %}">Voir</a>
-                    <p>{{ product.description }}</p>
-                    <p>{{ product.price }} €</p>
-                    <a href="{% url 'cart:add_to_cart' product.id %}">Ajouter au panier</a>
+      <div class="products-grid">
+        {% for product in products %}
+          <div class="product-card">
+            {% if product.image %}
+              <img src="{{ product.image.url }}" alt="{{ product.name }}" />
+            {% else %}
+              <img src="https://via.placeholder.com/300x200?text=Produit" alt="" />
+            {% endif %}
 
-                </div>
-            {% empty %}
-                <p>Aucun produit pour le moment.</p>
-            {% endfor %}
-        </div>
+            <h3>{{ product.name }}</h3>
+
+            <a href="{% url 'products:product_detail' product.slug %}">{% trans 'Voir' %}</a>
+
+            <p>{{ product.description }}</p>
+            <p>{{ product.price }} €</p>
+
+            <a href="{% url 'cart:add_to_cart' product.id %}">{% trans 'Ajouter au panier' %}</a>
+          </div>
+        {% empty %}
+          <p>
+            {% trans 'Aucun produit pour le moment.' %}
+          </p>
+        {% endfor %}
+      </div>
     </div>
+
     <footer class="footer">
-    <p>© {{ now|date:"Y" }} LorraineShop — Créations artisanales</p>
-</footer>
-
-
-
-</body>
+      <p>
+        © {{ now|date:'Y' }} LorraineShop —{% trans 'Créations artisanales' %}
+      </p>
+    </footer>
+  </body>
 </html>
