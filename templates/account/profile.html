@@ -1,0 +1,58 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="account-container">
+
+    <h1 class="account-title">{% trans "Mon compte" %}</h1>
+
+    <div class="account-section">
+        <h2>{% trans  "Informations personnelles" %}</h2>
+
+        <p><strong>{% trans "Prénom" %} :</strong> {{ user.first_name }}</p>
+        <p><strong>{% trans "Nom" %} :</strong> {{ user.last_name }}</p>
+        <p><strong>{% trans "Email" %} :</strong> {{ user.email }}</p>
+
+        <p><strong>{% trans "Adresse" %} :</strong> {{ user.userprofile.address }}</p>
+        <p><strong>{% trans "Code postal" %} :</strong> {{ user.userprofile.postal_code }}</p>
+        <p><strong>{% trans "Ville" %} :</strong> {{ user.userprofile.city }}</p>
+        <p><strong>{% trans "Région" %} :</strong> {{ user.userprofile.region }}</p>
+        <p><strong>{% trans "Téléphone" %} :</strong> {{ user.userprofile.phone }}</p>
+
+        <a href="{% url 'edit_profile' %}" class="btn-account">
+            {% trans "Modifier mes informations" %}
+        </a>
+    </div>
+
+    <div class="account-section">
+        <h2>{% trans "Mes commandes" %}</h2>
+
+        {% if orders %}
+            <table class="orders-table">
+                <tr>
+                    <th>{% trans "Numéro" %}</th>
+                    <th>{% trans "Date" %}</th>
+                    <th>{% trans "Total" %}</th>
+                </tr>
+
+                {% for order in orders %}
+                <tr>
+                    <td>#{{ order.id }}</td>
+                    <td>{{ order.created }}</td>
+                    <td>{{ order.get_total_cost }} €</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>{% trans "Aucune commande pour le moment." %}</p>
+        {% endif %}
+    </div>
+
+    <a href="{% url 'account_logout' %}" class="btn-logout">
+        {% trans "Déconnexion" %}
+    </a>
+
+</div>
+
+{% endblock %}

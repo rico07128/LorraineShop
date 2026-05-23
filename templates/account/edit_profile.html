@@ -1,0 +1,99 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="account-container">
+
+    <h1 class="account-title">{% trans "Modifier mes informations" %}</h1>
+
+    <div class="account-section" style="padding: 30px;">
+
+        <form method="post" class="edit-form">
+            {% csrf_token %}
+
+            <div class="form-row">
+                <label>{% trans "Prénom" %}</label>
+                <input type="text" name="first_name" value="{{ user.first_name }}" required>
+            </div>
+
+            <div class="form-row">
+                <label>{% trans "Nom" %}</label>
+                <input type="text" name="last_name" value="{{ user.last_name }}" required>
+            </div>
+
+            <div class="form-row">
+                <label>{% trans "Email" %}</label>
+                <input type="email" name="email" value="{{ user.email }}" required>
+            </div>
+
+            <hr style="margin: 25px 0; opacity: 0.3;">
+
+            <div class="form-row">
+                <label>{% trans "Adresse" %}</label>
+                <input type="text" name="address" value="{{ profile.address }}">
+            </div>
+
+            <div class="form-row">
+                <label>{% trans "Code postal" %}</label>
+                <input type="text" name="postal_code" value="{{ profile.postal_code }}">
+            </div>
+
+            <div class="form-row">
+                <label>{% trans "Ville" %}</label>
+                <input type="text" name="city" value="{{ profile.city }}">
+            </div>
+
+            <div class="form-row">
+                <label>{% trans "Région" %}</label>
+                <input type="text" name="region" value="{{ profile.region }}">
+            </div>
+
+            <div class="form-row">
+                <label>{% trans "Téléphone" %}</label>
+                <input type="text" name="phone" value="{{ profile.phone }}">
+            </div>
+
+            <button type="submit" class="btn-account" style="margin-top: 20px;">
+                {% trans "Enregistrer les modifications" %}
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+<style>
+    .edit-form {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .form-row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-row label {
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: #444;
+    }
+
+    .form-row input {
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+        transition: 0.2s ease;
+    }
+
+    .form-row input:focus {
+        border-color: #4a6cf7;
+        box-shadow: 0 0 4px rgba(74,108,247,0.3);
+        outline: none;
+    }
+</style>
+
+{% endblock %}

@@ -11,7 +11,6 @@ a, .qty-btn, .remove-btn, .pay-btn {
     letter-spacing: 0.5px;
 }
 
-
 /* HEADER */
 .header {
     background-color: #ffffffcc;
@@ -21,7 +20,6 @@ a, .qty-btn, .remove-btn, .pay-btn {
     top: 0;
     z-index: 100;
 }
-
 .header .container {
     max-width: 1100px;
     margin: auto;
@@ -30,20 +28,17 @@ a, .qty-btn, .remove-btn, .pay-btn {
     justify-content: space-between;
     align-items: center;
 }
-
 .header .logo {
     font-size: 1.4rem;
     font-weight: bold;
     color: #7a9c7a;
 }
-
 .header nav a {
     margin-left: 20px;
     text-decoration: none;
     color: #333;
     font-weight: 500;
 }
-
 .header nav a:hover {
     color: #7a9c7a;
 }
@@ -59,39 +54,27 @@ a, .qty-btn, .remove-btn, .pay-btn {
     text-align: center;
     color: white;
 }
-
 .hero h1 {
     font-size: 3rem;
     margin: 0;
 }
-
 .hero p {
     font-size: 1.3rem;
     margin-top: 10px;
 }
-
 .btn {
     display: inline-block;
     margin-top: 20px;
     padding: 12px 25px;
-    background-color: #8fae8f; /* vert sauge */
+    background-color: #8fae8f;
     color: white;
     text-decoration: none;
     border-radius: 6px;
     font-weight: bold;
 }
-
 .btn:hover {
     background-color: #7a9c7a;
 }
-
-.btn-qty.disabled {
-    pointer-events: none;
-    opacity: 0.4;
-    cursor: not-allowed;
-    
-}
-
 
 /* SECTIONS */
 .section {
@@ -106,7 +89,6 @@ a, .qty-btn, .remove-btn, .pay-btn {
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
 }
-
 .product-card {
     background: white;
     padding: 15px;
@@ -114,16 +96,13 @@ a, .qty-btn, .remove-btn, .pay-btn {
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     text-align: center;
 }
-
 .product-card img {
     width: 100%;
     border-radius: 6px;
 }
-
 .product-card h3 {
     margin: 10px 0 5px;
 }
-
 .product-card p {
     margin: 0;
     font-weight: bold;
@@ -132,11 +111,10 @@ a, .qty-btn, .remove-btn, .pay-btn {
 .products-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;   /* centre horizontalement */
-    gap: 20px;                 /* espace entre les produits */
+    justify-content: center;
+    gap: 20px;
     padding: 20px;
 }
-
 
 /* FOOTER */
 .footer {
@@ -148,6 +126,7 @@ a, .qty-btn, .remove-btn, .pay-btn {
     font-size: 0.9rem;
 }
 
+/* ALERTS */
 .alert {
     padding: 10px;
     margin: 10px auto;
@@ -155,208 +134,20 @@ a, .qty-btn, .remove-btn, .pay-btn {
     border-radius: 5px;
     text-align: center;
 }
+.alert.info { background-color: #d9edf7; color: #31708f; }
 
-.alert.info {
-    background-color: #d9edf7;
-    color: #31708f;
-}
-.qty-btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 6px;
-    text-decoration: none; /* enlève le soulignement */
-    border: none;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.qty-btn:hover {
-    background-color: #45a049;
-}
-
-.qty-btn.disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    pointer-events: none;
-}
+/* TABLE PANIER */
 .cart-table-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-/* Centrage du tableau */
-.table-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 20px;
-}
-
-/* Style du tableau */
-.cart-table {
-    border-collapse: collapse;
-    width: auto;
-    background: white;
-    padding: 10px;
-}
-
-.cart-table th, .cart-table td {
-    padding: 12px 18px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-/* Boutons + et - */
-.qty-btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 6px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.qty-btn:hover {
-    background-color: #45a049;
-}
-
-.qty-btn.disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-/* Bouton supprimer */
-.remove-btn {
-    color: white;
-    background: #d9534f;
-    padding: 6px 12px;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.remove-btn:hover {
-    background: #c9302c;
-}
-
-/* Quantité */
-.qty-number {
-    margin: 0 10px;
-    font-weight: bold;
-    font-size: 18px;
-}
-/* Centrage du tableau */
-.table-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin-top: 20px;
-}
-
-/* Style du tableau */
-.cart-table {
-    border-collapse: collapse;
-    width: auto;
-    background: white;
-    padding: 10px;
-}
-
-.cart-table th, .cart-table td {
-    padding: 12px 18px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-/* Boutons + et - */
-.qty-btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 32px;
-    height: 32px;
-    background-color: #4CAF50;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 6px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.qty-btn:hover {
-    background-color: #45a049;
-}
-
-.qty-btn.disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-    pointer-events: none;
-}
-
-/* Bouton supprimer */
-.remove-btn {
-    color: white;
-    background: #d9534f;
-    padding: 6px 12px;
-    border-radius: 5px;
-    text-decoration: none;
-}
-
-.remove-btn:hover {
-    background: #c9302c;
-}
-
-/* Quantité */
-.qty-number {
-    margin: 0 10px;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-/* Messages Django */
-.messages {
-    width: 80%;
-    margin: 20px auto;
-}
-
-.message {
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.message.info { background: #d1ecf1; }
-.message.success { background: #d4edda; }
-.message.warning { background: #fff3cd; }
-.message.error { background: #f8d7da; }
-
-
-/* Conteneur centré */
 .table-wrapper {
     display: flex;
     justify-content: center;
     width: 100%;
     margin-top: 30px;
 }
-
-/* Tableau moderne arrondi */
 .cart-table {
     border-collapse: separate;
     border-spacing: 0;
@@ -367,12 +158,9 @@ a, .qty-btn, .remove-btn, .pay-btn {
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
-
-/* En-tête */
 .cart-table thead {
     background: #f7f7f7;
 }
-
 .cart-table th {
     padding: 15px;
     font-size: 16px;
@@ -380,21 +168,17 @@ a, .qty-btn, .remove-btn, .pay-btn {
     text-align: center;
     border-bottom: 1px solid #e0e0e0;
 }
-
-/* Lignes */
 .cart-table td {
     padding: 15px;
     text-align: center;
     border-bottom: 1px solid #f0f0f0;
     font-size: 15px;
 }
-
-/* Dernière ligne sans bordure */
 .cart-table tr:last-child td {
     border-bottom: none;
 }
 
-/* Boutons + et - */
+/* BOUTONS + / - */
 .qty-btn {
     display: inline-flex;
     justify-content: center;
@@ -406,29 +190,24 @@ a, .qty-btn, .remove-btn, .pay-btn {
     font-size: 20px;
     font-weight: bold;
     border-radius: 8px;
-    text-decoration: none;
     cursor: pointer;
     transition: 0.2s ease;
 }
-
 .qty-btn:hover {
     background-color: #43a047;
 }
-
 .qty-btn.disabled {
     background-color: #cccccc;
     cursor: not-allowed;
     pointer-events: none;
 }
-
-/* Quantité */
 .qty-number {
     margin: 0 12px;
     font-size: 18px;
     font-weight: bold;
 }
 
-/* Bouton supprimer */
+/* SUPPRIMER */
 .remove-btn {
     background: #e53935;
     color: white;
@@ -437,19 +216,19 @@ a, .qty-btn, .remove-btn, .pay-btn {
     text-decoration: none;
     transition: 0.2s ease;
 }
-
 .remove-btn:hover {
     background: #c62828;
 }
 
-/* Total centré */
+/* TOTAL */
 .cart-total {
     text-align: center;
     margin-top: 25px;
     font-size: 20px;
     font-weight: bold;
 }
-/* Bouton de paiement */
+
+/* PAIEMENT */
 .pay-btn {
     background: #6772e5;
     color: rgb(197, 143, 26);
@@ -460,11 +239,11 @@ a, .qty-btn, .remove-btn, .pay-btn {
     font-weight: 600;
     transition: 0.2s ease;
 }
-
 .pay-btn:hover {
     background: #bb255f;
 }
 
+/* BADGES */
 .category-badges {
     display: flex;
     flex-wrap: wrap;
@@ -472,7 +251,6 @@ a, .qty-btn, .remove-btn, .pay-btn {
     gap: 12px;
     margin: 20px 0;
 }
-
 .badge {
     padding: 8px 14px;
     background: #e8f5e9;
@@ -483,8 +261,434 @@ a, .qty-btn, .remove-btn, .pay-btn {
     font-weight: 600;
     transition: 0.2s ease;
 }
-
 .badge:hover {
     background: #7a9c7a;
     color: white;
 }
+
+/* AUTH */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.auth-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 26px;
+    font-weight: 600;
+}
+.auth-form input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+.auth-btn {
+    width: 100%;
+    padding: 12px;
+    background: #4a6cf7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.auth-btn:hover {
+    background: #3a57d4;
+}
+
+/* === SELECTEUR DE LANGUE STYLE APPLE — VERSION PROPRE === */
+.apple-lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+.apple-dropbtn {
+    background: #ffffffee;
+    border: 1px solid #d0d0d0;
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s ease;
+    backdrop-filter: blur(8px);
+}
+.apple-dropbtn:hover {
+    background: #f5f5f5;
+}
+.flag-icon {
+    width: 22px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 4px;
+    display: inline-block;
+}
+.apple-dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffffee;
+    backdrop-filter: blur(10px);
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    min-width: 60px;
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.apple-lang-dropdown:hover .apple-dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.apple-flag-btn {
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 8px;
+    transition: 0.15s ease;
+}
+.apple-flag-btn:hover {
+    background: #eaeaea;
+    transform: scale(1.08);
+}
+
+/* Sélecteur Apple — clic garanti */
+.apple-lang-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.apple-dropbtn {
+    background: #ffffffee;
+    border: 1px solid #d0d0d0;
+    padding: 6px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: 0.2s ease;
+    backdrop-filter: blur(8px);
+}
+
+.flag-icon {
+    width: 22px;
+    height: 16px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.apple-dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffffee;
+    backdrop-filter: blur(10px);
+    padding: 8px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    min-width: 60px;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+
+    z-index: 9999;          /* IMPORTANT */
+    pointer-events: none;   /* empêche les clics quand fermé */
+}
+
+.apple-lang-dropdown:hover .apple-dropdown-content {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;   /* clics activés */
+}
+
+.apple-flag-btn {
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 8px;
+    transition: 0.15s ease;
+}
+
+.apple-flag-btn:hover {
+    background: #eaeaea;
+    transform: scale(1.08);
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+.account-container {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.btn-account {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 10px;
+    background: #4a6cf7;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.btn-account:hover {
+    background: #3a57d4;
+}
+
+/* === PAGE create.html (Passer commande) === */
+
+.order-container {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.order-container h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.order-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-container input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 8px;
+    border: 1px solid #d0d0d0;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.order-container input:focus {
+    outline: none;
+    border-color: #4a6cf7;
+    box-shadow: 0 0 0 2px rgba(74,108,247,0.15);
+}
+
+.order-submit-btn {
+    margin-top: 10px;
+    padding: 12px 20px;
+    background: #4a6cf7;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.order-submit-btn:hover {
+    background: #3a57d4;
+}
+
+/* === PAGE COMMANDE STYLE APPLE STORE === */
+
+.checkout-steps {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin: 40px 0 30px;
+}
+
+.checkout-step {
+    font-size: 15px;
+    font-weight: 600;
+    color: #aaa;
+    padding-bottom: 6px;
+    border-bottom: 3px solid transparent;
+    transition: 0.2s ease;
+}
+
+.checkout-step.active {
+    color: #4a6cf7;
+    border-color: #4a6cf7;
+}
+
+.checkout-wrapper {
+    max-width: 1100px;
+    margin: 0 auto 60px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 35px;
+}
+
+@media (max-width: 900px) {
+    .checkout-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FORMULAIRE */
+
+.checkout-box {
+    background: #fff;
+    padding: 35px;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.checkout-box h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.checkout-group {
+    margin-bottom: 18px;
+}
+
+.checkout-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.checkout-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #d0d0d0;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.checkout-group input:focus {
+    outline: none;
+    border-color: #4a6cf7;
+    box-shadow: 0 0 0 2px rgba(74,108,247,0.15);
+}
+
+/* RÉCAP PANIER */
+
+.summary-box {
+    background: #f8f9fb;
+    padding: 25px;
+    border-radius: 14px;
+    border: 1px solid #e2e4ea;
+}
+
+.summary-box h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.summary-total {
+    margin-top: 15px;
+    padding-top: 12px;
+    border-top: 1px solid #ddd;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* BOUTON VALIDER */
+
+.checkout-submit {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px 20px;
+    background: #4a6cf7;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.checkout-submit:hover {
+    background: #3a57d4;
+}
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+}
+
+.summary-total span {
+    font-size: 16px;
+}
+
+.summary-total strong {
+    font-weight: 600;
+}
+
+.delivery-box {
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: #fafafa;
+}
+
+.delivery-box h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.delivery-line {
+    padding: 4px 0;
+    font-size: 16px;
+}
+
+.pay-right {
+    width: 100%;
+    margin-top: 20px;
+}
+

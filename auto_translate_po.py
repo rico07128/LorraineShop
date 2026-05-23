@@ -2,7 +2,7 @@ import os
 import polib
 import time
 import random
-from googletrans import Translator
+import deepl
 
 # -------------------------------------------------------------------
 # 1) CONFIGURATION
@@ -11,7 +11,9 @@ from googletrans import Translator
 LOCALE_DIR = "locale"
 LANGUAGES = ["en", "es", "de", "it", "ja"]
 
-translator = Translator()
+# Mets ta clé DeepL ici
+DEEPL_API_KEY = "699eea0a-88de-4aac-bc18-75a30cc1f9b0:fx"
+translator = deepl.Translator(DEEPL_API_KEY)
 
 # Dictionnaire e-commerce intelligent
 SMART_ECOMMERCE_TRANSLATIONS = {
@@ -47,37 +49,43 @@ SMART_ECOMMERCE_TRANSLATIONS = {
 }
 
 # -------------------------------------------------------------------
-# 2) FONCTION DE TRADUCTION SÉCURISÉE
+# 2) FONCTION DE TRADUCTION
 # -------------------------------------------------------------------
 
-
 def smart_translate(msgid, lang):
-    # 1) Ne jamais traduire les chaînes système Django
+    # Ne pas traduire les chaînes système Django
     if "%" in msgid or "{" in msgid or "}" in msgid:
         return msgid
 
-    # 2) Correction e-commerce prioritaire
+    # Dictionnaire e-commerce
     if msgid in SMART_ECOMMERCE_TRANSLATIONS:
         return SMART_ECOMMERCE_TRANSLATIONS[msgid][lang]
 
-    # 3) Tentatives Google Translate (max 5)
+    # DeepL exige des codes spécifiques
+    deepl_lang = {
+        "en": "EN-US",
+        "es": "ES",
+        "de": "DE",
+        "it": "IT",
+        "ja": "JA",
+    }.get(lang, lang.upper())
+
+    # Tentatives DeepL
     for attempt in range(5):
         try:
-            translated = translator.translate(msgid, src="fr", dest=lang).text
-            return translated
+            result = translator.translate_text(msgid, target_lang=deepl_lang)
+            return result.text
         except Exception as e:
-            print(f"⚠️ Erreur Google (tentative {attempt+1}/5) : {e}")
+            print(f"⚠️ Erreur DeepL (tentative {attempt+1}/5) : {e}")
             time.sleep(1 + random.random() * 2)
 
-    # 4) Fallback si Google échoue
-    print(f"❌ Google a échoué pour : {msgid} → fallback = msgid")
+    print(f"❌ DeepL a échoué pour : {msgid} → fallback = msgid")
     return msgid
 
 
 # -------------------------------------------------------------------
 # 3) TRAITEMENT DES FICHIERS .PO
 # -------------------------------------------------------------------
-
 
 def translate_po_files():
     for lang in LANGUAGES:
@@ -91,14 +99,12 @@ def translate_po_files():
         po = polib.pofile(po_path)
 
         for entry in po:
-            # Ne traduire que les msgstr vides
             if entry.msgstr.strip() == "" and entry.msgid.strip() != "":
                 entry.msgstr = smart_translate(entry.msgid, lang)
                 print(f"✔ {entry.msgid} → {entry.msgstr}")
 
         po.save()
         print(f"💾 Sauvegardé : {po_path}")
-
 
 # -------------------------------------------------------------------
 # 4) LANCEMENT

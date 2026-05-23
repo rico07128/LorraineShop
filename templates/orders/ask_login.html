@@ -1,0 +1,27 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="account-container">
+
+    <h1>{% trans "Avant de commander" %}</h1>
+    <p>{% trans "Avez-vous un compte ?" %}</p>
+
+    <div style="margin-top: 20px;">
+        <a href="{% url 'account_login' %}" class="btn-account">
+            {% trans "Oui, j'ai un compte" %}
+        </a>
+
+        <a href="{% url 'account_signup' %}" class="btn-account" style="background:#27ae60;">
+            {% trans "Créer un compte" %}
+        </a>
+
+        <a href="/orders/create/" class="btn-account" style="background:#7f8c8d;">
+            {% trans "Continuer en invité" %}
+        </a>
+    </div>
+
+</div>
+
+{% endblock %}

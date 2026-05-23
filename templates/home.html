@@ -1,323 +1,174 @@
 {% load i18n %}
-{% get_current_language as LANGUAGE_CODE %}
 {% load static %}
+{% get_current_language as LANGUAGE_CODE %}
+
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <title>{% trans 'LorraineShop – Artisanat & Créations' %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-      body {
-        font-family: 'Poppins', sans-serif;
-      }
+        body { font-family: 'Poppins', sans-serif; }
+        .messages { width: 80%; margin: 20px auto; }
+        .msg { padding: 12px; margin-bottom: 10px; border-radius: 5px; text-align: center; font-weight: bold; }
+        .msg-success { background: #d4edda; }
+        .msg-info { background: #d1ecf1; }
+        .msg-warning { background: #fff3cd; }
+        .msg-error { background: #f8d7da; }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
+
+    <!-- MESSAGES -->
     {% if messages %}
-      <div style="width: 80%; margin: 20px auto;">
+    <div class="messages">
         {% for message in messages %}
-          <div style="
-            padding: 12px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: bold;
-            background-color:
-                {% if message.tags == 'success' %}
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              #d4edda
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {% elif message.tags == 'info' %}
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              #d1ecf1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {% elif message.tags == 'warning' %}
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              #fff3cd
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {% else %}
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              #f8d7da
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {% endif %};
-            color: #000;
-        ">{{ message }}</div>
+            <div class="msg msg-{{ message.tags }}">{{ message }}</div>
         {% endfor %}
-      </div>
+    </div>
     {% endif %}
 
+    <!-- HEADER -->
     <header class="header">
-      <div class="container">
+    <div class="container">
+
         <div class="logo">LorraineShop</div>
 
         <nav>
-          <a href="/">{% trans 'Accueil' %}</a>
-          <a href="/products/">{% trans 'Boutique' %}</a>
-          <a href="/cart/">{% trans 'Panier' %}</a>
-          <a href="/orders/create/">{% trans 'Commander' %}</a>
+            <a href="/">{% trans 'Accueil' %}</a>
+            <a href="/products/">{% trans 'Boutique' %}</a>
+            <a href="/cart/">{% trans 'Panier' %}</a>
+            <a href="/orders/create/">{% trans 'Commander' %}</a>
+
+            {% if user.is_authenticated %}
+                <a href="/mon-compte/">{% trans 'Mon compte' %}</a>
+            {% else %}
+                <a href="{% url 'account_login' %}">{% trans 'Connexion' %}</a>
+                <a href="{% url 'account_signup' %}">{% trans 'Inscription' %}</a>
+            {% endif %}
         </nav>
 
-        <!-- LANG SWITCHER -->
-        <div class="lang-switcher">
-          <form id="lang-fr" action="/i18n/setlang/" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="language" value="fr" />
-          </form>
-          <form id="lang-en" action="/i18n/setlang/" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="language" value="en" />
-          </form>
-          <form id="lang-es" action="/i18n/setlang/" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="language" value="es" />
-          </form>
-          <form id="lang-de" action="/i18n/setlang/" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="language" value="de" />
-          </form>
-          <form id="lang-it" action="/i18n/setlang/" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="language" value="it" />
-          </form>
-          <form id="lang-ja" action="/i18n/setlang/" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="language" value="ja" />
-          </form>
+        <!-- ZONE DROITE : drapeaux + déconnexion -->
+        <div class="header-right">
 
-          <a href="#" onclick="document.getElementById('lang-fr').submit();"><img src="{% static 'flags/fr.png' %}" width="24" /></a>
-          <a href="#" onclick="document.getElementById('lang-en').submit();"><img src="{% static 'flags/en.png' %}" width="24" /></a>
-          <a href="#" onclick="document.getElementById('lang-es').submit();"><img src="{% static 'flags/es.png' %}" width="24" /></a>
-          <a href="#" onclick="document.getElementById('lang-de').submit();"><img src="{% static 'flags/de.png' %}" width="24" /></a>
-          <a href="#" onclick="document.getElementById('lang-it').submit();"><img src="{% static 'flags/it.png' %}" width="24" /></a>
-          <a href="#" onclick="document.getElementById('lang-ja').submit();"><img src="{% static 'flags/ja.png' %}" width="24" /></a>
+            <!-- LANG SWITCHER APPLE -->
+            <div class="apple-lang-dropdown">
+                <button class="apple-dropbtn">
+                    <img src="{% static 'flags/' %}{{ LANGUAGE_CODE }}.png" class="flag-icon">
+                </button>
+
+                <div class="apple-dropdown-content">
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="language" value="fr">
+                        <button type="submit" class="apple-flag-btn">
+                            <img src="{% static 'flags/fr.png' %}" class="flag-icon">
+                        </button>
+                    </form>
+
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="language" value="en">
+                        <button type="submit" class="apple-flag-btn">
+                            <img src="{% static 'flags/en.png' %}" class="flag-icon">
+                        </button>
+                    </form>
+
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="language" value="es">
+                        <button type="submit" class="apple-flag-btn">
+                            <img src="{% static 'flags/es.png' %}" class="flag-icon">
+                        </button>
+                    </form>
+
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="language" value="de">
+                        <button type="submit" class="apple-flag-btn">
+                            <img src="{% static 'flags/de.png' %}" class="flag-icon">
+                        </button>
+                    </form>
+
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="language" value="it">
+                        <button type="submit" class="apple-flag-btn">
+                            <img src="{% static 'flags/it.png' %}" class="flag-icon">
+                        </button>
+                    </form>
+
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <input type="hidden" name="language" value="ja">
+                        <button type="submit" class="apple-flag-btn">
+                            <img src="{% static 'flags/ja.png' %}" class="flag-icon">
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            {% if user.is_authenticated %}
+            <form action="{% url 'account_logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn-logout">Déconnexion</button>
+            </form>
+            {% endif %}
+
         </div>
-      </div>
-    </header>
 
+    </div>
+</header>
+
+
+    <!-- CONTENU DES PAGES ENFANTS -->
     {% block content %}
-
     {% endblock %}
 
     <!-- HERO -->
     <div class="hero">
-      <div>
-        <h1>LorraineShop</h1>
-        <p>
-          {% trans 'Créations artisanales faites avec passion' %}
-        </p>
-        <a href="/products/" class="btn">{% trans 'Découvrir la boutique' %}</a>
-      </div>
+        <div>
+            <h1>LorraineShop</h1>
+            <p>{% trans 'Créations artisanales faites avec passion' %}</p>
+            <a href="/products/" class="btn">{% trans 'Découvrir la boutique' %}</a>
+        </div>
     </div>
 
     <!-- PRODUITS POPULAIRES -->
     <div class="section">
-      <h2>{% trans 'Produits populaires' %}</h2>
+        <h2>{% trans 'Produits populaires' %}</h2>
 
-      <div class="products-grid">
-        {% for product in products %}
-          <div class="product-card">
-            {% if product.image %}
-              <img src="{{ product.image.url }}" alt="{{ product.name }}" />
-            {% else %}
-              <img src="https://via.placeholder.com/300x200?text=Produit" alt="" />
-            {% endif %}
+        <div class="products-grid">
+            {% for product in products %}
+                <div class="product-card">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                    {% else %}
+                        <img src="https://via.placeholder.com/300x200?text=Produit" alt="">
+                    {% endif %}
 
-            <h3>{{ product.name }}</h3>
+                    <h3>{{ product.name }}</h3>
+                    <a href="{% url 'products:product_detail' product.slug %}">{% trans 'Voir' %}</a>
 
-            <a href="{% url 'products:product_detail' product.slug %}">{% trans 'Voir' %}</a>
+                    <p>{{ product.description }}</p>
+                    <p>{{ product.price }} €</p>
 
-            <p>{{ product.description }}</p>
-            <p>{{ product.price }} €</p>
-
-            <a href="{% url 'cart:add_to_cart' product.id %}">{% trans 'Ajouter au panier' %}</a>
-          </div>
-        {% empty %}
-          <p>
-            {% trans 'Aucun produit pour le moment.' %}
-          </p>
-        {% endfor %}
-      </div>
+                    <a href="{% url 'cart:add_to_cart' product.id %}">{% trans 'Ajouter au panier' %}</a>
+                </div>
+            {% empty %}
+                <p>{% trans 'Aucun produit pour le moment.' %}</p>
+            {% endfor %}
+        </div>
     </div>
 
     <footer class="footer">
-      <p>
-        © {{ now|date:'Y' }} LorraineShop —{% trans 'Créations artisanales' %}
-      </p>
+        <p>© {{ now|date:'Y' }} LorraineShop — {% trans 'Créations artisanales' %}</p>
     </footer>
-  </body>
+
+</body>
 </html>

@@ -1,0 +1,128 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<!-- ÉTAPES -->
+<div class="checkout-steps">
+    <div class="checkout-step">1. {% trans "Informations" %}</div>
+    <div class="checkout-step active">2. {% trans "Livraison" %}</div>
+    <div class="checkout-step">3. {% trans "Paiement" %}</div>
+</div>
+
+<div class="checkout-wrapper">
+
+    <!-- FORMULAIRE LIVRAISON -->
+    <div class="checkout-box">
+        <h2>{% trans "Choisissez votre mode de livraison" %}</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+          <div class="shipping-option">
+    <label>
+        <input type="radio" name="shipping" value="standard" required>
+        <span>{% trans "Livraison Standard (3–5 jours) — 4,90€" %}</span>
+    </label>
+</div>
+
+<div class="shipping-option">
+    <label>
+        <input type="radio" name="shipping" value="express">
+        <span>{% trans "Livraison Express (24h) — 9,90€" %}</span>
+    </label>
+</div>
+
+<div class="shipping-option">
+    <label>
+        <input type="radio" name="shipping" value="pickup">
+        <span>{% trans "Point Relais — 3,50€" %}</span>
+    </label>
+</div>
+
+
+            <h2 style="margin-top:30px;">{% trans "Adresse de livraison" %}</h2>
+
+            <div class="checkout-group">
+                <label>{% trans "Adresse" %}</label>
+                <input type="text" name="address" required>
+            </div>
+
+            <div class="checkout-group">
+                <label>{% trans "Code postal" %}</label>
+                <input type="text" name="postal_code" required>
+            </div>
+
+            <div class="checkout-group">
+                <label>{% trans "Ville" %}</label>
+                <input type="text" name="city" required>
+            </div>
+
+            <button type="submit" class="checkout-submit">
+                {% trans "Continuer vers le paiement" %}
+            </button>
+        </form>
+    </div>
+
+    <!-- RÉCAP PANIER -->
+    <div class="summary-box">
+        <h3>{% trans "Votre panier" %}</h3>
+
+        {% for item in cart %}
+        <div class="summary-line">
+            <span>{{ item.product.name }} × {{ item.quantity }}</span>
+            <span>{{ item.total_price }} €</span>
+        </div>
+        {% endfor %}
+
+        <!-- Sous-total -->
+        <div class="summary-total">
+    <span>{% trans "Sous-total" %}</span>
+    <span>{{ subtotal|floatformat:2 }} €</span>
+</div>
+
+{% if shipping_price > 0 %}
+<div class="summary-total">
+    <span>{% trans "Livraison" %}</span>
+    <span>{{ shipping_price|floatformat:2 }} €</span>
+</div>
+{% endif %}
+
+<div class="summary-total">
+    <span><strong>{% trans "Total" %}</strong></span>
+    <span><strong>{{ total|floatformat:2 }} €</strong></span>
+</div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+.shipping-option label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.shipping-option label:hover {
+    border-color: #4a6cf7;
+    background: #f7f9ff;
+}
+
+.shipping-option input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #4a6cf7; /* bleu Apple Store */
+}
+
+.shipping-option span {
+    font-size: 16px;
+    color: #333;
+}

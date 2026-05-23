@@ -1,0 +1,85 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<!-- ÉTAPES -->
+<div class="checkout-steps">
+    <div class="checkout-step">1. {% trans "Informations" %}</div>
+    <div class="checkout-step active">2. {% trans "Livraison" %}</div>
+    <div class="checkout-step">3. {% trans "Paiement" %}</div>
+</div>
+
+<div class="checkout-wrapper">
+
+    <!-- FORMULAIRE LIVRAISON -->
+    <div class="checkout-box">
+        <h2>{% trans "Choisissez votre mode de livraison" %}</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="checkout-group">
+                <label>
+                    <input type="radio" name="shipping" value="standard">
+                    {% trans "Livraison Standard (3–5 jours) — 4,90€" %}
+                </label>
+            </div>
+
+            <div class="checkout-group">
+                <label>
+                    <input type="radio" name="shipping" value="express">
+                    {% trans "Livraison Express (24h) — 9,90€" %}
+                </label>
+            </div>
+
+            <div class="checkout-group">
+                <label>
+                    <input type="radio" name="shipping" value="pickup">
+                    {% trans "Point Relais — 3,50€" %}
+                </label>
+            </div>
+
+            <h2 style="margin-top:30px;">{% trans "Adresse de livraison" %}</h2>
+
+            <div class="checkout-group">
+                <label>{% trans "Adresse" %}</label>
+                <input type="text" name="address">
+            </div>
+
+            <div class="checkout-group">
+                <label>{% trans "Code postal" %}</label>
+                <input type="text" name="postal_code">
+            </div>
+
+            <div class="checkout-group">
+                <label>{% trans "Ville" %}</label>
+                <input type="text" name="city">
+            </div>
+
+            <button type="submit" class="checkout-submit">
+                {% trans "Continuer vers le paiement" %}
+            </button>
+        </form>
+    </div>
+
+    <!-- RÉCAP PANIER -->
+    <div class="summary-box">
+        <h3>{% trans "Votre panier" %}</h3>
+
+        {% for item in cart %}
+        <div class="summary-line">
+            <span>{{ item.product.name }} × {{ item.quantity }}</span>
+            <span>{{ item.total_price }} €</span>
+        </div>
+        {% endfor %}
+
+        <div class="summary-total">
+            <span>{% trans "Total" %}</span>
+            <span>{{ cart.get_total_price }} €</span>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

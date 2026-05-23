@@ -20,7 +20,7 @@ SECRET_KEY = "django-insecure-9gg-%ldwbu15)#0uu)js3^el3de!zor%+9zc4%u-a7mmd@q@#5
 DEBUG = True
 ALLOWED_HOSTS = []
 
-# Langue par défaut (admin restera en FR)
+# Langue par défaut
 LANGUAGE_CODE = "fr"
 USE_I18N = True
 
@@ -39,28 +39,58 @@ LOCALE_PATHS = [
 
 # Apps
 INSTALLED_APPS = [
+    # Django
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+
+    # Sites (obligatoire pour allauth)
+    "django.contrib.sites",
+
+    # Allauth
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    # Ton app accounts avec le signal pour créer le profil utilisateur
+    'accounts.apps.AccountsConfig',
+
+    # Tes apps
     "cart",
     "products",
     "orders",
 ]
 
+SITE_ID = 1
+
+# Allauth configuration
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "none"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
 # Middleware
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    # 👉 Ton middleware admin
-    "LorraineShop.middleware.ForceAdminLanguageMiddleware",
-    # 👉 LocaleMiddleware doit venir APRÈS
+
+
+     # LocaleMiddleware doit être après SessionMiddleware
     "django.middleware.locale.LocaleMiddleware",
+   
+   
+     # Ton middleware admin
+    "LorraineShop.middleware.ForceAdminLanguageMiddleware",
+
+   
+
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
+
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
@@ -76,7 +106,7 @@ TEMPLATES = [
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
-                "django.template.context_processors.request",
+                "django.template.context_processors.request",  # obligatoire pour allauth
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
             ],
@@ -96,9 +126,7 @@ DATABASES = {
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
     {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
@@ -120,3 +148,8 @@ CART_SESSION_ID = "cart"
 
 # Messages
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
+
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = 'account_login'
+

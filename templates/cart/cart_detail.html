@@ -1,7 +1,8 @@
 {% extends "home.html" %}
+{% load i18n %}
 
 {% block content %}
-<h1 style="color: #40b45d; text-align: center;" >Votre panier</h1>
+<h1 style="color: #40b45d; text-align: center;" >{% trans "Votre panier" %}</h1>
 
 
 
@@ -10,10 +11,10 @@
     <table class="cart-table">
         <thead>
             <tr>
-                <th>Produit</th>
-                <th>Quantité</th>
-                <th>Sous-total</th>
-                <th>Action</th>
+                <th>{% trans "Produit" %}</th>
+                <th>{% trans "Quantité" %}</th>
+                <th>{% trans "Sous-total" %}</th>
+                <th>{% trans "Action" %}</th>
             </tr>
         </thead>
 
@@ -37,7 +38,7 @@
 
                 <td>
                     <a href="{% url 'cart:remove_from_cart' item.product.id %}" class="remove-btn">
-                        Supprimer
+                        {% trans "Supprimer" %}
                     </a>
                 </td>
             </tr>
@@ -50,16 +51,17 @@
 
 
 <div class="cart-total">
-    <h3 style="text-align: center;">Total : {{ cart.get_total_price }} €</h3>
+    <h3 style="text-align: center;">{% trans "Total" %} : {{ cart.get_total_price }} €</h3>
     
    
 </div>
+ <a href="/orders/create/">{% trans 'Commander' %}</a>
 <div style="text-align:center; margin-top:20px; ">
-    <a href="{% url 'cart:checkout' %}" style="background: #6772e5; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 18px; font-weight: 600; transition: 0.2s ease;">Payer maintenant</a>
+    <a href="{% url 'cart:checkout' %}" style="background: #6772e5; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 18px; font-weight: 600; transition: 0.2s ease;">{% trans "Payer maintenant" %}</a>
 </div>
 
 {% else %}
-    <p style="color: #e71616;border: 2px solid #e71616; text-align: center;">Votre panier est vide.</p>
+    <p style="color: #e71616;border: 2px solid #e71616; text-align: center;">{% trans "Votre panier est vide." %}</p>
 {% endif %}
 
 {% endblock %}

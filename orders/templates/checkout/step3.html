@@ -1,0 +1,74 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<!-- ÉTAPES -->
+<div class="checkout-steps">
+    <div class="checkout-step">1. {% trans "Informations" %}</div>
+    <div class="checkout-step">2. {% trans "Livraison" %}</div>
+    <div class="checkout-step active">3. {% trans "Paiement" %}</div>
+</div>
+
+<div class="checkout-wrapper">
+
+    <!-- COLONNE GAUCHE : Adresse + Livraison -->
+    <div class="checkout-box">
+
+        <!-- Adresse -->
+        <div class="delivery-box">
+            <h3>{% trans "Adresse de livraison" %}</h3>
+
+            <div class="delivery-line">{{ customer.first_name }} {{ customer.last_name }}</div>
+            <div class="delivery-line">{{ customer.address }}</div>
+            <div class="delivery-line">{{ customer.postal_code }} {{ customer.city }}</div>
+        </div>
+
+        <!-- Mode de livraison -->
+        <div class="delivery-box">
+            <h3>{% trans "Mode de livraison" %}</h3>
+            <div class="delivery-line">{{ shipping_label }}</div>
+            <div class="delivery-line">{{ shipping_price|floatformat:2 }} €</div>
+        </div>
+
+    </div>
+
+    <!-- COLONNE DROITE : Panier + Paiement -->
+    <div class="summary-box">
+        <h3>{% trans "Votre panier" %}</h3>
+
+        {% for item in cart %}
+        <div class="summary-line">
+            <span>{{ item.product.name }} × {{ item.quantity }}</span>
+            <span>{{ item.total_price|floatformat:2 }} €</span>
+        </div>
+        {% endfor %}
+
+        <div class="summary-total">
+            <span>{% trans "Sous-total" %}</span>
+            <span>{{ subtotal|floatformat:2 }} €</span>
+        </div>
+
+        <div class="summary-total">
+            <span>{% trans "Livraison" %}</span>
+            <span>{{ shipping_price|floatformat:2 }} €</span>
+        </div>
+
+        <div class="summary-total">
+            <span><strong>{% trans "Total" %}</strong></span>
+            <span><strong>{{ total|floatformat:2 }} €</strong></span>
+        </div>
+        <br><br>
+
+        <!-- Bouton payer maintenant -->
+      
+        <div style="text-align:center; margin-top:20px; ">
+            <span> <a href="{% url 'cart:checkout' %}" style="background: #6772e5; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-size: 18px; font-weight: 600; transition: 0.2s ease;">{% trans "Payer maintenant" %}</a></span>
+        </div>
+
+
+    </div>
+
+</div>
+
+{% endblock %}

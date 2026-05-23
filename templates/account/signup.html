@@ -1,0 +1,21 @@
+{% extends "home.html" %}
+{% load i18n %}
+{% block content %}
+<div class="auth-wrapper">
+    <div class="auth-card">
+        <h2 class="auth-title">{% trans 'Créer un compte' %}</h2>
+
+        <form method="post" class="auth-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit" class="auth-btn">{% trans 'Créer mon compte' %}</button>
+        </form>
+
+        <p class="auth-alt">
+            Déjà inscrit ?
+            <a href="{% url 'account_login' %}">{% trans 'Connexion' %}</a>
+        </p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<!-- ÉTAPES -->
+<div class="checkout-steps">
+    <div class="checkout-step">1. {% trans "Informations" %}</div>
+    <div class="checkout-step">2. {% trans "Livraison" %}</div>
+    <div class="checkout-step active">3. {% trans "Paiement" %}</div>
+</div>
+
+<div class="checkout-wrapper">
+
+    <!-- FORMULAIRE PAIEMENT -->
+    <div class="checkout-box">
+        <h2>{% trans "Paiement sécurisé" %}</h2>
+
+        <form method="post">
+            {% csrf_token %}
+
+            <div class="checkout-group">
+                <label>{% trans "Numéro de carte" %}</label>
+                <input type="text" name="card_number" placeholder="4242 4242 4242 4242">
+            </div>
+
+            <div class="checkout-group">
+                <label>{% trans "Date d'expiration" %}</label>
+                <input type="text" name="expiry" placeholder="MM/AA">
+            </div>
+
+            <div class="checkout-group">
+                <label>{% trans "CVC" %}</label>
+                <input type="text" name="cvc" placeholder="123">
+            </div>
+
+            <button type="submit" class="checkout-submit">
+                {% trans "Payer maintenant" %}
+            </button>
+        </form>
+    </div>
+
+    <!-- RÉCAP PANIER -->
+    <div class="summary-box">
+        <h3>{% trans "Votre commande" %}</h3>
+
+        {% for item in cart %}
+        <div class="summary-line">
+            <span>{{ item.product.name }} × {{ item.quantity }}</span>
+            <span>{{ item.total_price }} €</span>
+        </div>
+        {% endfor %}
+
+        <div class="summary-total">
+            <span>{% trans "Total à payer" %}</span>
+            <span>{{ cart.get_total_price }} €</span>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

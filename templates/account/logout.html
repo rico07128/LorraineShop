@@ -1,0 +1,11 @@
+{% extends "home.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="account-container" style="text-align:center; padding:40px;">
+    <h1>{% trans "Déconnexion réussie" %}</h1>
+    <p>{% trans "Vous êtes maintenant déconnecté." %}</p>
+
+    <a href="{% url 'account_login' %}" class="btn-account">{% trans "Se reconnecter" %}</a>
+</div>
+{% endblock %}
